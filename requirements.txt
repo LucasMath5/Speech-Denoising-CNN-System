@@ -5,3 +5,5 @@ soundfile
 numpy
 scipy
 tqdm
+pystoi
+pesq

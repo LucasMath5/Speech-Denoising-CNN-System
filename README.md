@@ -1,24 +1,27 @@
 # Speech Denoising Training Pipeline
 
-This repository contains the preprocessing and training pipeline for a speech denoising system based on a compact convolutional U-Net. The model receives noisy speech spectrograms and learns to estimate a spectral mask that suppresses noise while preserving speech components.
+This repository contains the preprocessing, training, evaluation, and reconstruction pipeline for a speech denoising system based on a compact convolutional U-Net. The model receives noisy speech spectrograms and learns to estimate a spectral mask that suppresses noise while preserving speech components.
 
-The first version of the repository focuses on dataset preparation, PyTorch data loading, model definition, and training. Audio files, processed features, checkpoints, reports, and interface files are not tracked in Git.
+Audio files, processed features, checkpoints, reports, and interface files are not tracked in Git.
 
 ## Structure
 
 ```text
 .
-├── data/
-│   ├── raw/          # extracted WAV files, not tracked
-│   └── processed/    # processed NPZ features and manifest, not tracked
-├── src/
-│   ├── preprocess.py
-│   ├── dataset.py
-│   ├── model.py
-│   └── train.py
-├── checkpoints/      # generated model checkpoints, not tracked
-├── requirements.txt
-└── README.md
+|-- data/
+|   |-- raw/          # extracted WAV files, not tracked
+|   `-- processed/    # processed NPZ features and manifest, not tracked
+|-- src/
+|   |-- preprocess.py
+|   |-- dataset.py
+|   |-- model.py
+|   |-- train.py
+|   |-- evaluate.py
+|   `-- reconstruct.py
+|-- checkpoints/      # generated model checkpoints, not tracked
+|-- outputs/          # generated metrics and audio, not tracked
+|-- requirements.txt
+`-- README.md
 ```
 
 ## Setup
@@ -75,6 +78,30 @@ Checkpoints and training history are written to:
 
 ```text
 checkpoints/
+```
+
+## Evaluation
+
+Evaluate a trained checkpoint on the validation split:
+
+```bash
+python src/evaluate.py --checkpoint-path checkpoints/best_model.pt --output-csv outputs/evaluation.csv
+```
+
+The evaluation script reports mask MSE, input SNR, output SNR, SNR improvement, SDR, STOI, and PESQ when the optional metric packages are installed and compatible with the audio sample rate.
+
+## Audio Reconstruction
+
+Reconstruct denoised WAV files from a trained checkpoint:
+
+```bash
+python src/reconstruct.py --checkpoint-path checkpoints/best_model.pt --output-dir outputs/reconstructed
+```
+
+To save the noisy reference files next to the reconstructed outputs, add:
+
+```bash
+--save-noisy-reference
 ```
 
 ## Notes
