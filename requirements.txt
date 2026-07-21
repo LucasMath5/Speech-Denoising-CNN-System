@@ -7,3 +7,5 @@ scipy
 tqdm
 pystoi
 pesq
+matplotlib
+PyQt5

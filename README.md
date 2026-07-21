@@ -17,7 +17,8 @@ Audio files, processed features, checkpoints, reports, and interface files are n
 |   |-- model.py
 |   |-- train.py
 |   |-- evaluate.py
-|   `-- reconstruct.py
+|   |-- reconstruct.py
+|   `-- gui.py
 |-- checkpoints/      # generated model checkpoints, not tracked
 |-- outputs/          # generated metrics and audio, not tracked
 |-- requirements.txt
@@ -112,6 +113,20 @@ A compact summary of the main training runs is available in:
 docs/experiments.md
 ```
 
+## Graphical Interface
+
+The PyQt5 interface can load a noisy WAV file, apply a trained checkpoint, play the noisy and denoised signals, display waveforms and spectrograms, and compare the result against an optional clean reference.
+
+```bash
+python src/gui.py
+```
+
+More details are available in:
+
+```text
+docs/gui.md
+```
+
 ## Notes
 
-The repository intentionally excludes generated data, WAV files, model weights, experiment reports, and graphical interface code. These artifacts can be added in later releases or stored outside Git when needed.
+The repository intentionally excludes generated data, WAV files, model weights, and experiment reports. These artifacts can be added in later releases or stored outside Git when needed.
