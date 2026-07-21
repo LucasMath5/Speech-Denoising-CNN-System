@@ -104,6 +104,14 @@ To save the noisy reference files next to the reconstructed outputs, add:
 --save-noisy-reference
 ```
 
+## Experiment Notes
+
+A compact summary of the main training runs is available in:
+
+```text
+docs/experiments.md
+```
+
 ## Notes
 
 The repository intentionally excludes generated data, WAV files, model weights, experiment reports, and graphical interface code. These artifacts can be added in later releases or stored outside Git when needed.
