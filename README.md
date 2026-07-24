@@ -38,6 +38,12 @@ python -m pip install -r requirements.txt
 
 For GPU training, install a PyTorch build compatible with the local CUDA driver according to the official PyTorch installation instructions.
 
+On Windows, the setup can also be run with:
+
+```bat
+scripts\setup_windows.bat
+```
+
 ## Dataset Preparation
 
 Place the NOIZEUS zip files in a local folder, then run:
@@ -125,6 +131,12 @@ More details are available in:
 
 ```text
 docs/gui.md
+```
+
+For presentation or second-computer setup notes, see:
+
+```text
+docs/demo.md
 ```
 
 ## Notes
