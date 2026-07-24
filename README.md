@@ -67,6 +67,20 @@ win_length = 512
 window = hann
 ```
 
+## Tests
+
+Run the lightweight test suite:
+
+```bash
+python -m unittest discover -s tests
+```
+
+On Windows, the same check can be run with:
+
+```bat
+scripts\run_tests.bat
+```
+
 ## Training
 
 Run the baseline training configuration:
