@@ -2,7 +2,6 @@
 
 This repository contains the preprocessing, training, evaluation, and reconstruction pipeline for a speech denoising system based on a compact convolutional U-Net. The model receives noisy speech spectrograms and learns to estimate a spectral mask that suppresses noise while preserving speech components.
 
-Audio files, processed features, checkpoints, reports, and interface files are not tracked in Git.
 
 ## Structure
 
